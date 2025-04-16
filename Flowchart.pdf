@@ -1,0 +1,48 @@
+
+START
+
+SHOW Login or Register Screen
+IF user logs in successfully THEN
+    GO TO Main Menu
+ELSE
+    SHOW Error Message
+    RETURN to Login Screen
+END IF
+
+LOOP Main Menu
+    SHOW Options:
+        1. Add Task
+        2. View Tasks
+        3. Update Task
+        4. Delete Task
+        5. Logout
+
+    GET userChoice
+
+    SWITCH (userChoice)
+        CASE 1:
+            PROMPT for Task Name and Deadline
+            SAVE Task to List
+            SHOW "Task Added Successfully"
+        CASE 2:
+            DISPLAY All Tasks with Status & Deadlines
+        CASE 3:
+            PROMPT to Select Task
+            PROMPT to Edit Details/Status
+            UPDATE Task
+            SHOW "Task Updated"
+        CASE 4:
+            PROMPT to Select Task
+            CONFIRM Deletion
+            DELETE Task
+            SHOW "Task Deleted"
+        CASE 5:
+            LOGOUT
+            RETURN to Login Screen
+        DEFAULT:
+            SHOW "Invalid Choice"
+    END SWITCH
+
+END LOOP
+
+END
